@@ -1,6 +1,6 @@
 package kata.tennis.points;
 
-public enum ClassicPoint{
+ public enum ClassicPoint{
 
 	ZERO("0"),
 	QUINZE("15"),
@@ -13,7 +13,7 @@ public enum ClassicPoint{
 		this.point=point ;
 	}
 
-	public String getEnumPoint() {
+	public final String getEnumPoint() {
 		return point;
 	}
 

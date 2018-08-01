@@ -1,6 +1,7 @@
 package kata.tennis.rules;
 
 import kata.tennis.player.Player;
+import kata.tennis.points.ClassicPoint;
 
 public class TieBreakRule extends GameRule {
 
@@ -15,7 +16,7 @@ public class TieBreakRule extends GameRule {
 	@Override
 	public void updatePoints(Player player) {
 
-		if(player.getName()==player1.getName()) {
+		if( player.getName().equals(player1.getName()) ) {
 			scorePlayer1+=1;
 			player1.setScore(scorePlayer1.toString());
 		}
@@ -31,14 +32,14 @@ public class TieBreakRule extends GameRule {
 	
 	private void isTieBreakFinished() {
 		if( (scorePlayer1-scorePlayer2)>=2 &&scorePlayer1>=7) {
-			player1.setScore("WIN");
+			player1.setScore(ClassicPoint.WIN.getEnumPoint());
 			scorePlayer1=0;
 			scorePlayer2=0;
 			
 		}
 		
 		else if( (scorePlayer2-scorePlayer1)>=2 &&scorePlayer2>=7) {
-			player2.setScore("WIN");
+			player2.setScore(ClassicPoint.WIN.getEnumPoint());
 			scorePlayer1=0;
 			scorePlayer2=0;
 		}
@@ -48,7 +49,7 @@ public class TieBreakRule extends GameRule {
 	@Override
 	public void setPointToPlayer(Player playerWin, String point) {
 		playerWin.setScore(point);
-		if(playerWin.getName()==player1.getName()) {
+		if( playerWin.getName().equals(player1.getName()) ){
 			scorePlayer1=Integer.parseInt(point);
 		}
 		else {

@@ -14,7 +14,7 @@ public class DeuceRule extends GameRule {
 	@Override
 	public void updatePoints(Player playerWin) {
 		
-		if(playerWin.getName()==player1.getName()){
+		if(playerWin.getName().equals(player1.getName())){
 			
 			setPointsRelative(player1,player2);
 		}
@@ -27,12 +27,13 @@ public class DeuceRule extends GameRule {
 	
 	private void setPointsRelative(Player playerWin,Player playerLoses ) {
 		
-		if(playerLoses.getScore()==DeucePoint.ADV.getEnumPoint()) {
+		if( playerLoses.getScore().equals(DeucePoint.ADV.getEnumPoint()) ) {
+			
 			playerWin.setScore(DeucePoint.DEUCE.getEnumPoint());
 			playerLoses.setScore(DeucePoint.DEUCE.getEnumPoint());
 		}
 		
-		else if(playerWin.getScore()==DeucePoint.ADV.getEnumPoint()) {
+		else if( playerWin.getScore().equals(DeucePoint.ADV.getEnumPoint()) ) {
 			playerWin.setScore(DeucePoint.WIN.getEnumPoint());
 		}
 		

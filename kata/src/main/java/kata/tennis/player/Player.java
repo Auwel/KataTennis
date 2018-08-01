@@ -1,24 +1,17 @@
 package kata.tennis.player;
 
-
+import kata.tennis.points.ClassicPoint;
 
 public class Player {
-
-
-	
 	
 	private String playerName; 
-	private String score="0"; // Score of the player during the current game;
+	private String score=ClassicPoint.ZERO.getEnumPoint(); 
 	private int gameWin=0; // the number of games won 
 	private int setWin=0; // the number of sets won
 	
 	
 	public Player(String playerName) {
 		this.playerName=playerName;
-		this.score="0";
-		this.gameWin=0;
-		this.setWin=0;
-		
 	}
 	
 	

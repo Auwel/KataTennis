@@ -55,7 +55,9 @@ public class PlayTennisMatch {
 		while(matchIsPlaying) {
 
 			nextPlayingBall();
+			referee.displayGameScore();
 			matchIsPlaying=referee.checkTheWinner(); 
+			
 
 		}
 
@@ -64,8 +66,9 @@ public class PlayTennisMatch {
 
 	// give a winner for the current point and update the scores
 	private void nextPlayingBall() {
-	
-		while(playerName!=player1.getName()||playerName!=player2.getName()){
+		playerName="";
+		
+		while(!playerName.equals(player1.getName())&&!playerName.equals(player2.getName())){
 			
 			System.out.print("Rentrez le nom du joueur gagnant le prochain point: ");
 			System.out.println();
@@ -73,17 +76,17 @@ public class PlayTennisMatch {
 			playerName=input.nextLine();
 
 			
-			if(playerName.equals(player1.getName())){
+			if(playerName.equals(player1.getName())){				
 				referee.pointWon(player1);
-				
 			}
+			
 			else if(playerName.equals(player2.getName())){
 				referee.pointWon(player2);
 			}
+			
 			else 
 				System.out.println("Vous n'avez pas rentré un nom de joueur correct");
 			
-			referee.displayGameScore();
 		}
 	}
 
