@@ -66,7 +66,7 @@ public class TestTheGame {
 		referee.getGameRule().setPointToPlayer(player2, DeucePoint.QUARANTE.getEnumPoint()); // 40
 		referee.pointWon(player1);
 		
-		condition=player1.getScore().equals(DeucePoint.QUARANTE.getEnumPoint())&&player2.getScore().equals(DeucePoint.QUARANTE.getEnumPoint());
+		condition=player1.getScore().equals(DeucePoint.ADV.getEnumPoint())&&player2.getScore().equals(DeucePoint.QUARANTE.getEnumPoint());
 		assertTrue("Score player1 =ADV & player2=40",condition);
 	}
 
