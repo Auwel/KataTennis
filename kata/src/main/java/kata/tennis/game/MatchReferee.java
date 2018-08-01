@@ -102,25 +102,38 @@ public class MatchReferee {
 			player1.setScore(ClassicPoint.ZERO.getEnumPoint());
 			player2.setScore(ClassicPoint.ZERO.getEnumPoint());
 			
-			// Condition for the tie-break event 
-			if(player1.getGameWin()==6 && player2.getGameWin()==6) {
-				gameRule=rules[2];
-				return;
-			}
-			// Condition if both of the player won 5 games each
-			if(player1.getGameWin()==5 && player2.getGameWin()==5) {
-				this.nbOfGamesToPlay=7;
-				return;
-			}
+			
 			// Condition if a player won the number of games to complete one Set
 			if(player.getGameWin()==nbOfGamesToPlay) {
 				currentMatchState="Set";
 				player.setNbSetWin(player.getSetWin()+1);
 				player1.setNbGameWin(0);
 				player2.setNbGameWin(0);
+				this.nbOfGamesToPlay=6;
 				gameRule=rules[0];
+				
+				//Condition to win the party 
+				if(player.getSetWin()==nbOfSetToPlay) {
+					currentMatchState="Match";
+					return;
+				}
 				return;
 			}
+			
+			
+			// Condition if both of the player won 5 games each
+			if(player1.getGameWin()==5 && player2.getGameWin()==5) {
+				this.nbOfGamesToPlay=7;
+				return;
+			}
+			
+			
+			// Condition for the tie-break event 
+			if(player1.getGameWin()==6 && player2.getGameWin()==6) {
+				gameRule=rules[2];
+				return;
+			}
+						
 			return;
 		}
 		
